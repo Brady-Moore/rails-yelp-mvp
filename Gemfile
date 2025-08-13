@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.3.5"
 
+gem 'simple_form'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5", ">= 7.1.5.1"
 
@@ -49,6 +51,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "faker"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
