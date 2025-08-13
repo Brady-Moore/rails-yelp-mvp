@@ -9,15 +9,11 @@
     </ul>
   </div>
 <% end %>
-<%= form_with model: @restaurant do |f| %>
-  <p><%= f.label :name %><br>
-    <%= f.text_field :name %></p>
-  <p><%= f.label :address %><br>
-    <%= f.text_field :address %></p>
-  <p><%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %></p>
-  <p><%= f.label :category %><br>
-    <%= f.text_field :category %></p>
-  <p><%= f.submit "Create" %></p>
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES, prompt: "Choose a category" %>
+  <%= f.button :submit, "Create" %>
 <% end %>
 <p><%= link_to "Back", restaurants_path %></p>
