@@ -1,15 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_restaurant
-  def new
-    @review = Review.new
-  end
 
   def create
     @review = @restaurant.reviews.build(review_params)
     if @review.save
-      redirect_to @restaurant, notice: "Thank you for leaving a review!"
+      redirect_to @restaurant, notice: "Thank you for leaving a review!", status: :see_other
     else
-      render :new, status: :unprocessable_entity
+      render "restaurants/show", status: :unprocessable_entity
     end
   end
 

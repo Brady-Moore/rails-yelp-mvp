@@ -13,5 +13,16 @@
 <% else %>
   <p>No reviews yet.</p>
 <% end %>
-<p><%= link_to "Add a review", new_restaurant_review_path(@restaurant) %></p>
+<hr>
+<h3>Add a review</h3>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :rating, collection: 0..5, prompt: "Select rating" %>
+    <%= f.input :content %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Post review" %>
+  </div>
+<% end %>
 <p><%= link_to "Back to all restaurants", restaurants_path %></p>
